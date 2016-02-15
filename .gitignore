@@ -1,0 +1,5 @@
+/node_modules
+/compiled
+/.idea
+npm-debug.log
+nodespring.log
