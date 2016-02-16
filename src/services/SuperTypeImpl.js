@@ -3,6 +3,7 @@
  */
 
 import {Implements, Inject} from 'nodespring'
+
 import SuperType from '../interfaces/SuperType'
 import TestType from '../interfaces/TestType'
 
@@ -18,6 +19,6 @@ export default class SuperTypeImpl {
   }
 
   methodTwo(name, type) {
-    return "Sending something => " + this.myOwnType.uniqueMethod()
+    return "Sending something => " + JSON.stringify(this.myOwnType.uniqueMethod())
   }
 }
