@@ -2,26 +2,37 @@ import SuperTypeImpl from '../src/services/SuperTypeImpl'
 import TestType from '../src/interfaces/TestType'
 
 
-import {Mock, Test, InjectMocks, TestClass} from 'nodespring'
-
+import {Mock, Test, Before, InjectMocks, TestClass} from 'nodespring'
 
 @TestClass
 export default class SuperTypeImplTest {
 
   @Mock(TestType)
-  myOwnTypeMock;
+  myOwnTypeMock
 
   @InjectMocks(SuperTypeImpl)
   superImpl
 
+  @Before
+  initTest() {
+    console.log('Before method init')
+  }
+
   @Test
   test1() {
     this.myOwnTypeMock.uniqueMethod = () => {
-      return "Ops! I did it!"
+      return "I did it!"
     }
 
     console.log(this.superImpl.methodTwo())
+  }
 
-    console.log('executing the first test')
+  @Test
+  test2() {
+    this.myOwnTypeMock.uniqueMethod = () => {
+      return "From other test!"
+    }
+
+    console.log(this.superImpl.methodTwo())
   }
 }

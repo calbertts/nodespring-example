@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "nodespring": "1.0.0",
+    "nodespring": "0.0.2",
     "express": "^4.13.4"
   },
   "devDependencies": {
