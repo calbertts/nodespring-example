@@ -1,11 +1,11 @@
 import SuperTypeImpl from '../src/services/SuperTypeImpl'
 import TestType from '../src/interfaces/TestType'
 
-
 import {Mock, Test, Before, InjectMocks, TestClass} from 'nodespring'
 
+
 @TestClass
-export default class SuperTypeImplTest {
+export class SuperTypeImplTest {
 
   @Mock(TestType)
   myOwnTypeMock

@@ -7,18 +7,15 @@
 
 import {Controller, Get, Post, Inject} from 'nodespring'
 
-import SuperType from '../interfaces/SuperType'
-import TestType from '../interfaces/TestType'
+import MyService from '../services/MyService'
 
 
 @Controller
-export class MyClass {
+export default class MyClass {
 
-  @Inject(TestType)
-  testType;
+  @Inject(MyService)
+  myService
 
-  @Inject(SuperType)
-  users;
 
   @Post({contentType: 'application/json'})
   anotherMethod() {
@@ -27,8 +24,10 @@ export class MyClass {
 
   @Get
   getNewsById(id, name) {
-    console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
+    /*console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
+    return "I got it: " + JSON.stringify(this.anotherMethod())*/
+
     console.log('Values => ', id, name)
-    return "I got it: " + JSON.stringify(this.anotherMethod())
+    return this.myService.service1()
   }
 }
