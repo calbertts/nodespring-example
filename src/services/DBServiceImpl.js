@@ -2,7 +2,7 @@
  *
  */
 
-import {Implements} from 'nodespring'
+import {Implements, Inject} from 'nodespring'
 import DBService from './../interfaces/DBService'
 
 
