@@ -10,7 +10,6 @@ import {Controller, Get, Post, Inject} from 'nodespring'
 import SuperType from '../interfaces/SuperType'
 import TestType from '../interfaces/TestType'
 import DBService from '../interfaces/DBService'
-import DBServiceImpl from '../services/DBServiceImpl'
 
 
 @Controller({path: 'users'})
