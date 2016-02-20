@@ -14,6 +14,8 @@ export default class DBServiceImpl {
   @Inject(TestType)
   myDBTestType
 
+  numberOne = 1
+
 
   find(type, where) {
     return 'test1'
@@ -21,5 +23,13 @@ export default class DBServiceImpl {
 
   save(object) {
     return 'test2'
+  }
+
+  setNumberOne(number) {
+    this.numberOne = number
+  }
+
+  getNumberOne() {
+    return this.numberOne
   }
 }

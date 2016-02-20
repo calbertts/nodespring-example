@@ -13,7 +13,7 @@ export default class MyService {
   mySuperTypeObject
 
   service1() {
-    return 'text from MyService.service1 ::: ' + this.mySuperTypeObject.methodTwo()
+    return 'text from MyService.service1 ::: ' + this.mySuperTypeObject.getVariable()
   }
 
   service2() {

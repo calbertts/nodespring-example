@@ -39,7 +39,9 @@ export default class UsersController {
   test(user) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(this.superType.methodTwo() + "YES")
+        this.superType.setVariable("new Value from UserController")
+        this.superType.setNumberOne(32)
+        resolve(this.superType.getVariable() + "YES")
       }, 0)
     })
   }
