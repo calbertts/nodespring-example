@@ -2,7 +2,7 @@
  *
  */
 
-import {Implements, Inject} from 'nodespring'
+import {Implements, Inject, PostInject} from 'nodespring'
 
 import SuperType from '../interfaces/SuperType'
 import TestType from '../interfaces/TestType'
@@ -19,6 +19,11 @@ export default class SuperTypeImpl {
   dbService;
 
   variable = "myText"
+
+  @PostInject
+  init() {
+    console.log('All instances injected!')
+  }
 
   methodOne(id, isOK) {
     return 'value from INJECTED MODULE!!!'

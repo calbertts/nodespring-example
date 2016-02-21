@@ -26,4 +26,19 @@ export default class SuperType {
       returnValue: Array
     }
   }
+
+  getVariable() {
+    return {
+      params: {},
+      returnValue: String
+    }
+  }
+
+  setVariable() {
+    return {
+      params: {
+        value: String
+      }
+    }
+  }
 }
