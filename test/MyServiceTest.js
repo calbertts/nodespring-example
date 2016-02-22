@@ -40,6 +40,7 @@ export class MyServiceTest {
 
   @Test
   test2(assert) {
+    this.myService.service2()
     assert.ok(true)
     assert.done()
   }
