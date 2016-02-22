@@ -12,8 +12,8 @@ export default class MyService {
   @Inject(SuperType)
   mySuperTypeObject
 
-  service1() {
-    return 'text from MyService.service1 ::: ' + this.mySuperTypeObject.getVariable()
+  service1(parameter) {
+    return 'text from MyService.service1 ::: ' + this.mySuperTypeObject.getVariable(parameter)
   }
 
   service2() {

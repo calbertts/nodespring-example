@@ -2,10 +2,10 @@
  * Testing MyService
  */
 
+import {Mock, Test, Before, InjectMocks, TestClass} from 'nodespring'
+
 import MyService from '../src/services/MyService'
 import SuperType from '../src/interfaces/SuperType'
-
-import {Mock, Test, Before, InjectMocks, TestClass} from 'nodespring'
 
 
 @TestClass
@@ -19,20 +19,42 @@ export class MyServiceTest {
 
   @Before
   initTest() {
-    console.log('Before method init on service')
+    // stuff before test
   }
 
   @Test
-  test1() {
-    this.superTypeMock.getVariable = () => {
-      return "I did it from service!"
+  test1(assert) {
+    this.superTypeMock.getVariable = (parameter) => {
+      return "parameter from mock: " + parameter
     }
 
-    console.log(this.myService.service1())
+    setTimeout(() => {
+      assert.equal(
+        this.myService.service1("myParameter"),
+        "text from MyService.service1 ::: parameter from mock: myParameter"
+      )
+
+      assert.done()
+    }, 5000)
   }
 
   @Test
-  test2() {
-    console.log('final test')
+  test2(assert) {
+    assert.ok(true)
+    assert.done()
+  }
+
+  @Test
+  test3(assert) {
+    assert.ok(true)
+    assert.done()
+  }
+
+  @Test
+  test4(assert) {
+    setTimeout(() => {
+      assert.equal("one", "one")
+      assert.done()
+    }, 3000)
   }
 }
