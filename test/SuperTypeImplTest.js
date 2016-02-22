@@ -15,24 +15,25 @@ export class SuperTypeImplTest {
 
   @Before
   initTest() {
-    console.log('Before method init')
   }
 
   @Test
-  test1() {
+  test1(assert) {
     this.myOwnTypeMock.uniqueMethod = () => {
       return "I did it!"
     }
 
-    console.log(this.superImpl.methodTwo())
+    this.superImpl.methodTwo()
+    assert.done()
   }
 
   @Test
-  test2() {
+  test2(assert) {
     this.myOwnTypeMock.uniqueMethod = () => {
       return "From other test!"
     }
 
-    console.log(this.superImpl.methodTwo())
+    this.superImpl.methodTwo()
+    assert.done()
   }
 }
