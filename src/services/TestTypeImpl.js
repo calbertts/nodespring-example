@@ -1,5 +1,6 @@
 /**
- *
+ * TestTypeImpl
+ * @author calbertts
  */
 
 import {Implements} from 'nodespring'

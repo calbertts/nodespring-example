@@ -1,5 +1,6 @@
 /**
- * Testing Service decorator
+ * MyService
+ * @author
  */
 
 import {Service, Inject} from 'nodespring'

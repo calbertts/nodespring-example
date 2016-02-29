@@ -1,5 +1,6 @@
 /**
- *
+ * SuperTypeImpl
+ * @author calbertts
  */
 
 import {Implements, Inject, PostInject} from 'nodespring'
@@ -22,7 +23,7 @@ export default class SuperTypeImpl {
 
   @PostInject
   init() {
-    console.log('All instances injected!')
+    //console.log('All instances injected!')
   }
 
   methodOne(id, isOK) {

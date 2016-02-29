@@ -1,31 +1,19 @@
 /**
- * App
+ * MyApp
  * @author calbertts
  */
 
-import express from 'express'
-import {ModuleContainer} from 'nodespring'
+import {ExpressApp} from 'nodespring'
 
 
-class App {
+class MyApp extends ExpressApp {
 
   constructor() {
-    this.app = express()
-    this.context = __dirname
-
-    const port = 5000
-
-    ModuleContainer.init(this.app)
-    ModuleContainer.loadModules(this.context)
-
-    this.app.get('/', function (req, res) {
-      res.send('Hello World!');
-    });
-
-    this.app.listen(port, function () {
-      console.log('Server running at http://localhost:5000');
+    super({
+      port: 5000,
+      classDir: __dirname
     })
   }
 }
 
-new App()
+new MyApp().start()

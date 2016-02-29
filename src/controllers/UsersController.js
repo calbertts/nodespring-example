@@ -40,7 +40,11 @@ export default class UsersController {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         this.superType.setVariable("new Value from UserController")
-        this.superType.setNumberOne(32)
+
+        console.log('PREVIOUS NUMBER: ' + this.superType.dbService.getNumberOne())
+        this.superType.dbService.setNumberOne(32)
+        console.log('NEW NUMBER: ' + this.superType.dbService.getNumberOne())
+
         resolve(this.superType.getVariable() + "YES")
       }, 0)
     })

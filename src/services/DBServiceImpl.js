@@ -1,15 +1,20 @@
 /**
- *
+ * DBServiceImpl
+ * @author calbertts
  */
 
-import {Implements, Inject} from 'nodespring'
+import {Implements, Inject, Scope} from 'nodespring'
+
 import DBService from './../interfaces/DBService'
-
 import TestType from '../interfaces/TestType'
+import MyClass from '../controllers/MyClass'
 
 
-@Implements(DBService)
+@Implements(DBService, Scope.PROTOTYPE)
 export default class DBServiceImpl {
+
+  //@Inject(MyClass)
+  //myClass
 
   @Inject(TestType)
   myDBTestType
