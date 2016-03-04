@@ -1,6 +1,6 @@
 import MyClass from '../src/controllers/MyClass'
-import TestType from '../src/interfaces/TestType'
-import SuperType from '../src/interfaces/SuperType'
+import MyService from '../src/services/MyService'
+import DBService from '../src/interfaces/DBService'
 
 import {Mock, Test, Before, InjectMocks, TestClass} from 'nodespring'
 
@@ -8,22 +8,41 @@ import {Mock, Test, Before, InjectMocks, TestClass} from 'nodespring'
 @TestClass
 export class MyClassTest {
 
-  @Mock(TestType)
-  testTypeMock
-
-  @Mock(SuperType)
-  superTypeMock
+  @Mock(DBService)
+  myDBServiceMock
 
   @InjectMocks(MyClass)
   myClass
 
+  @Mock(MyService)
+  myServiceMock
+
   @Before
   initTest() {
-    console.log('Before each tests')
+    //console.log('Before each tests')
   }
 
   @Test
-  test1() {
+  test1(assert) {
+    this.myDBServiceMock.getNumberOne = () => {
+      return this.myDBServiceMock.number
+    }
+
+    this.myDBServiceMock.setNumberOne = (num) => {
+      this.myDBServiceMock.number = 1
+    }
+
+    try {
+    this.myServiceMock.service1 = () => {
+
+    }
+    } catch(e) {
+      console.log(e)
+    }
+
     this.myClass.getNewsById(1, 'carlos')
+
+    assert.ok(true)
+    assert.done()
   }
 }

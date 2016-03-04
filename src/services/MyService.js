@@ -7,6 +7,7 @@ import {Service, Inject} from 'nodespring'
 
 import SuperType from '../interfaces/SuperType'
 
+
 @Service
 export default class MyService {
 
@@ -18,6 +19,6 @@ export default class MyService {
   }
 
   service2() {
-    console.log('text from MyService.service2')
+    //console.log('text from MyService.service2')
   }
 }

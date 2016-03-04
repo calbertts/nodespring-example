@@ -11,7 +11,7 @@ import MyService from '../services/MyService'
 import DBService from '../interfaces/DBService'
 
 
-@Controller
+@Controller({path: 'myClass'})
 export default class MyClass {
 
   @Inject(MyService)
@@ -36,6 +36,8 @@ export default class MyClass {
     console.log('NEW NUMBER: ', this.dbService.getNumberOne())
 
     console.log('Values => ', id, name)
-    return this.myService.service1()
+    let res = this.myService.service1()
+
+    return res
   }
 }

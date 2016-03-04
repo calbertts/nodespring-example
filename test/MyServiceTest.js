@@ -29,7 +29,7 @@ export class MyServiceTest {
     }
 
     setTimeout(() => {
-      assert.notEqual(
+      assert.equal(
         this.myService.service1("myParameter"),
         "text from MyService.service1 ::: parameter from mock: myParameter"
       )

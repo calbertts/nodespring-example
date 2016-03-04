@@ -10,10 +10,10 @@ import TestType from '../interfaces/TestType'
 
 
 @Implements(DBService, Scope.PROTOTYPE)
-export default class DBServiceImpl {
+export default class DBServiceImpl2 {
 
-  @Inject(TestType)
-  myDBTestType
+  /*@Inject(TestType)
+  myDBTestType*/
 
   numberOne = 1
 
@@ -23,7 +23,7 @@ export default class DBServiceImpl {
   }
 
   save(object) {
-    return 'test2'
+    return 'test2 other Impl'
   }
 
   setNumberOne(number) {
