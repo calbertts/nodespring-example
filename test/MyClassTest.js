@@ -24,13 +24,15 @@ export class MyClassTest {
 
   @Test
   test1(assert) {
-    this.myDBServiceMock.getNumberOne = () => {
+    console.log(this.myDBServiceMock)
+
+    /*this.myDBServiceMock.getNumberOne = () => {
       return this.myDBServiceMock.number
     }
 
     this.myDBServiceMock.setNumberOne = (num) => {
       this.myDBServiceMock.number = 1
-    }
+    }*/
 
     try {
     this.myServiceMock.service1 = () => {

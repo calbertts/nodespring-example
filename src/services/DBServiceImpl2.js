@@ -9,21 +9,21 @@ import DBService from './../interfaces/DBService'
 import TestType from '../interfaces/TestType'
 
 
-@Implements(DBService, Scope.PROTOTYPE)
+@Implements(DBService)
 export default class DBServiceImpl2 {
 
-  /*@Inject(TestType)
-  myDBTestType*/
+  @Inject(TestType)
+  myDBTestType
 
-  numberOne = 1
+  numberOne = 1000
 
 
   find(type, where) {
-    return 'test1'
+    return 'test1x'
   }
 
   save(object) {
-    return 'test2 other Impl'
+    return 'test2x'
   }
 
   setNumberOne(number) {

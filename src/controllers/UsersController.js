@@ -37,6 +37,10 @@ export default class UsersController {
 
   @Get
   test(user) {
+    /*console.log('dbService', this.dbService)
+    console.log('superType', this.superType)
+    console.log('testType', this.testType)*/
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         this.superType.setVariable("new Value from UserController")

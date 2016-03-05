@@ -15,7 +15,8 @@ class MyApp extends ExpressApp {
         classDir: __dirname,
         implConfig: {
           '/interfaces/DBService': './services/DBServiceImpl'
-        }
+        },
+        logging: true
       }
     )
   }

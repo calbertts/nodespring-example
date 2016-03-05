@@ -9,7 +9,7 @@ import DBService from './../interfaces/DBService'
 import TestType from '../interfaces/TestType'
 
 
-@Implements(DBService, Scope.PROTOTYPE)
+@Implements(DBService)
 export default class DBServiceImpl {
 
   @Inject(TestType)

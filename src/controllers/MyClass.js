@@ -11,7 +11,7 @@ import MyService from '../services/MyService'
 import DBService from '../interfaces/DBService'
 
 
-@Controller({path: 'myClass'})
+@Controller
 export default class MyClass {
 
   @Inject(MyService)
@@ -30,6 +30,9 @@ export default class MyClass {
   getNewsById(id, name) {
     /*console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
     return "I got it: " + JSON.stringify(this.anotherMethod())*/
+
+    //console.log('myService', this.myService)
+    //console.log('dbService', this.dbService)
 
     console.log('PREVIOUS NUMBER: ', this.dbService.getNumberOne())
     this.dbService.setNumberOne(-145)
