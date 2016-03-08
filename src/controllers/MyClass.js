@@ -31,9 +31,6 @@ export default class MyClass {
     /*console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
     return "I got it: " + JSON.stringify(this.anotherMethod())*/
 
-    //console.log('myService', this.myService)
-    //console.log('dbService', this.dbService)
-
     console.log('PREVIOUS NUMBER: ', this.dbService.getNumberOne())
     this.dbService.setNumberOne(-145)
     console.log('NEW NUMBER: ', this.dbService.getNumberOne())
