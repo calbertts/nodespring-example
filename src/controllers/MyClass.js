@@ -5,7 +5,7 @@
  *
  */
 
-import {Controller, Get, Post, Inject} from 'nodespring'
+import {Controller, Get, Post, Inject, SocketListener} from 'nodespring'
 
 import MyService from '../services/MyService'
 import DBService from '../interfaces/DBService'
@@ -39,5 +39,10 @@ export default class MyClass {
     let res = this.myService.service1()
 
     return res
+  }
+
+  @SocketListener
+  onCustomEvent(data, socket, io) {
+    console.log('SERVER LISTENING MSG: ', data.myData)
   }
 }
