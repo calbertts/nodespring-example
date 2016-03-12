@@ -26,10 +26,13 @@ export default class MyClass {
     return {ok: "yes"}
   }
 
+  @Post
+  variable
+
   @Get
   getNewsById(id, name) {
-    /*console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
-    return "I got it: " + JSON.stringify(this.anotherMethod())*/
+    //console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
+    //return "I got it: " + JSON.stringify(this.anotherMethod())
 
     console.log('PREVIOUS NUMBER: ', this.dbService.getNumberOne())
     this.dbService.setNumberOne(-145)
