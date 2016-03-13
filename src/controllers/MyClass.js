@@ -26,9 +26,6 @@ export default class MyClass {
     return {ok: "yes"}
   }
 
-  @Post
-  variable
-
   @Get
   getNewsById(id, name) {
     //console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
