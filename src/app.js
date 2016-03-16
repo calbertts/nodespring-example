@@ -4,6 +4,9 @@
  */
 
 import {ExpressApp} from 'nodespring'
+import express from 'express'
+import path from 'path'
+import ejs from 'ejs'
 
 
 class MyApp extends ExpressApp {
@@ -19,6 +22,11 @@ class MyApp extends ExpressApp {
         logging: true
       }
     )
+
+    this.expressApp.engine('html', ejs.renderFile)
+    this.expressApp.set('view engine', 'html')
+    this.expressApp.set('views', path.join(__dirname, '../../views'))
+    this.expressApp.use(express.static(path.join(__dirname, '../../views')))
   }
 }
 

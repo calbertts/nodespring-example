@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.4.1",
     "express": "^4.13.4"
   },
   "devDependencies": {
@@ -19,7 +20,6 @@
     "test": "babel-node",
     "start_": "babel-node --debug=5858 src/app.js",
     "test-coverage": "babel-node node_modules/isparta/bin/isparta cover",
-
     "compile": "babel -w src/ -d compiled/src -s",
     "start": "npm run compile & nodemon --debug=5858 ./compiled/src/app.js"
   },

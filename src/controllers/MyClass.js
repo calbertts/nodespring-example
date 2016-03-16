@@ -20,6 +20,10 @@ export default class MyClass {
   @Inject(DBService)
   dbService
 
+  index() {
+    this.index.response.render('index.html')
+  }
+
 
   @Post({contentType: 'application/json'})
   anotherMethod() {
