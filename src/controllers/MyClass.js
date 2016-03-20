@@ -17,8 +17,8 @@ export default class MyClass {
   @Inject(MyService)
   myService
 
-  @Inject(DBService)
-  dbService
+  /*@Inject(DBService)
+  dbService*/
 
   index() {
     this.index.response.render('index.html')
@@ -35,13 +35,17 @@ export default class MyClass {
     //console.log('injected value! => ', this.users.methodTwo() + " => " + this.testType.uniqueMethod() + ' : OK')
     //return "I got it: " + JSON.stringify(this.anotherMethod())
 
-    console.log('PREVIOUS NUMBER: ', this.dbService.getNumberOne())
-    this.dbService.setNumberOne(-145)
-    console.log('NEW NUMBER: ', this.dbService.getNumberOne())
+    DBService.getInstance().then((dbService) => {
+      console.log('dbService', dbService)
 
-    console.log('Values => ', id, name)
+      console.log('PREVIOUS NUMBER: ', dbService.getNumberOne())
+      dbService.setNumberOne(-145)
+      console.log('NEW NUMBER: ', dbService.getNumberOne())
+
+      console.log('Values => ', id, name)
+    })
+
     let res = this.myService.service1()
-
     return res
   }
 
