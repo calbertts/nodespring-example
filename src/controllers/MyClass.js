@@ -24,10 +24,9 @@ export default class MyClass {
     this.index.response.render('index.html')
   }
 
-
   @Post({contentType: 'application/json'})
   anotherMethod() {
-    return {ok: "yes"}
+    //return {ok: "yes"}
   }
 
   @Get
@@ -36,8 +35,6 @@ export default class MyClass {
     //return "I got it: " + JSON.stringify(this.anotherMethod())
 
     DBService.getInstance().then((dbService) => {
-      console.log('dbService', dbService)
-
       console.log('PREVIOUS NUMBER: ', dbService.getNumberOne())
       dbService.setNumberOne(-145)
       console.log('NEW NUMBER: ', dbService.getNumberOne())

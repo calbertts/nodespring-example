@@ -19,7 +19,8 @@ class MyApp extends ExpressApp {
         implConfig: {
           '/interfaces/DBService': './services/DBServiceImpl'
         },
-        logging: true
+        logging: true,
+        loggingSync: true
       }
     )
 

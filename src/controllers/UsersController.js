@@ -30,6 +30,10 @@ export default class UsersController {
 
   @Get({contentType: 'application/json'})
   other(user) {
+    SuperType.getInstance().then((superTypeInstance) => {
+      console.log('OTHER:', superTypeInstance)
+    })
+
     return {
       message: this.anotherMethod()
     }

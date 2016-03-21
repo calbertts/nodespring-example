@@ -3,7 +3,7 @@
  * @author calbertts
  */
 
-import {Implements, Inject, PostInject} from 'nodespring'
+import {Implements, Inject, PostInject, Scope} from 'nodespring'
 
 import SuperType from '../interfaces/SuperType'
 import TestType from '../interfaces/TestType'
@@ -23,7 +23,7 @@ export default class SuperTypeImpl {
 
   @PostInject
   init() {
-    //console.log('All instances injected!')
+    console.log('superImpl')
   }
 
   methodOne(id, isOK) {
