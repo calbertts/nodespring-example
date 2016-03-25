@@ -19,7 +19,7 @@ export default class SuperTypeImpl {
   @Inject(DBService)
   dbService;
 
-  variable = "myText"
+  variable = "myText2"
 
   @PostInject
   init() {

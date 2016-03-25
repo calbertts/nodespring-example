@@ -5,7 +5,7 @@
  *
  */
 
-import {Controller, Get, Post, Inject, SocketListener} from 'nodespring'
+import {Controller, Get, Post, Inject, PostInject, SocketListener} from 'nodespring'
 
 import MyService from '../services/MyService'
 import DBService from '../interfaces/DBService'
@@ -17,8 +17,13 @@ export default class MyClass {
   @Inject(MyService)
   myService
 
-  /*@Inject(DBService)
-  dbService*/
+  @Inject(DBService)
+  dbService
+
+  @PostInject
+  init() {
+    console.log('MyClass postinject')
+  }
 
   index() {
     this.index.response.render('index.html')
@@ -46,8 +51,15 @@ export default class MyClass {
     return res
   }
 
-  @SocketListener
+  @SocketListener({namespace: '/admin'})
   onCustomEvent(data, socket, io) {
+    socket.emit('evt', 'HI!')
     console.log('SERVER LISTENING MSG: ', data.myData)
+  }
+
+  @SocketListener({namespace: '/'})
+  onCustomEvent2(data, socket, io) {
+    socket.emit('evt2', 'HI2!')
+    console.log('SERVER LISTENING MSG2: ', data.myData)
   }
 }
