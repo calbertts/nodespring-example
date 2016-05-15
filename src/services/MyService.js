@@ -3,7 +3,7 @@
  * @author
  */
 
-import {Service, Inject} from 'nodespring'
+import {Service, Inject, PostInject} from 'nodespring'
 
 import SuperType from '../interfaces/SuperType'
 
@@ -13,6 +13,11 @@ export default class MyService {
 
   @Inject(SuperType)
   mySuperTypeObject
+
+  @PostInject
+  init() {
+    console.log("PostInjection from MyService")
+  }
 
   service1(parameter) {
     return 'text from MyService.service1 ::: ' + this.mySuperTypeObject.getVariable(parameter)

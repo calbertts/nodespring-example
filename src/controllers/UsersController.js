@@ -5,11 +5,12 @@
  *
  */
 
-import {Controller, Get, Post, Inject} from 'nodespring'
+import {Controller, Get, Post, Inject, PostInject} from 'nodespring'
 
 import SuperType from '../interfaces/SuperType'
 import TestType from '../interfaces/TestType'
 import DBService from '../interfaces/DBService'
+import MyService from '../services/MyService'
 
 
 @Controller({path: 'users'})
@@ -21,8 +22,13 @@ export default class UsersController {
   @Inject(SuperType)
   superType;
 
-  @Inject(DBService)
-  dbService;
+  @Inject(MyService)
+  myService
+
+  @PostInject
+  init() {
+    console.log("UsersControllers postinject")
+  }
 
   anotherMethod() {
     return "message two"
