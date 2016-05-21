@@ -11,6 +11,7 @@ import SuperType from '../interfaces/SuperType'
 import TestType from '../interfaces/TestType'
 import DBService from '../interfaces/DBService'
 import MyService from '../services/MyService'
+import cluster from 'cluster'
 
 
 @Controller({path: 'users'})
@@ -27,17 +28,18 @@ export default class UsersController {
 
   @PostInject
   init() {
-    console.log("UsersControllers postinject")
   }
 
   anotherMethod() {
-    return "message two"
+    return "message two: node: " + (cluster.worker ? cluster.worker.id : 'no worker')
   }
 
   @Get({contentType: 'application/json'})
   other(user) {
+    console.log('Using node: ', (cluster.worker ? cluster.worker.id : 'no worker'))
+
     SuperType.getInstance().then((superTypeInstance) => {
-      console.log('OTHER:', superTypeInstance)
+      //console.log('OTHER:', superTypeInstance)
     })
 
     return {
@@ -59,7 +61,7 @@ export default class UsersController {
         this.superType.dbService.setNumberOne(32)
         console.log('NEW NUMBER: ' + this.superType.dbService.getNumberOne())
 
-        resolve(this.superType.getVariable() + "YES")
+        resolve(this.superType.getVariable() + "YES: NODE: "  + (cluster.worker ? cluster.worker.id : 'no worker'))
       }, 0)
     })
   }

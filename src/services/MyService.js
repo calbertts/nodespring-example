@@ -16,7 +16,6 @@ export default class MyService {
 
   @PostInject
   init() {
-    console.log("PostInjection from MyService")
   }
 
   service1(parameter) {

@@ -20,12 +20,13 @@
   "engineStrict": "true",
   "scripts": {
     "compile-tests": "babel -w test/ -d compiled/test -s",
-    "test_": "npm run compile-tests & nodemon --debug=5858 ./compiled/test/app.js",
+    "test_": "npm run compile-tests & node --debug=5858 ./compiled/test/app.js",
     "test": "babel-node",
     "start_": "babel-node --debug=5858 src/app.js",
     "test-coverage": "babel-node node_modules/isparta/bin/isparta cover",
     "compile": "babel -w src/ -d compiled/src -s",
-    "start": "npm run compile & nodemon --debug=5858 ./compiled/src/app.js",
+    "start": "npm run compile & node --debug=5858 ./compiled/src/app.js",
+    "serve": "node --debug=5858 ./compiled/src/app.js",
     "nodespring": "./node_modules/nodespring/lib/bin/nodespring.js"
   },
   "author": "calbertts (calbertts@gmail.com)",

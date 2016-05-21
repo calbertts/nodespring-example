@@ -22,12 +22,10 @@ export default class SuperTypeImpl {
   variable = "myText2"
 
   constructor() {
-    console.log('creating!!!')
   }
 
   @PostInject
   init() {
-    console.log('superImpl')
   }
 
   methodOne(id, isOK) {

@@ -15,19 +15,21 @@ class MyApp extends ExpressApp {
     super(
       {
         port: 5000,
+        hostname: '192.168.0.10',
         classDir: __dirname,
         implConfig: {
           '/interfaces/DBService': './services/DBServiceImpl'
         },
-        logging: true,
-        loggingSync: true
+        logging: false,
+        loggingSync: true,
+        loadbalancer: false
       }
     )
 
-    this.expressApp.engine('html', ejs.renderFile)
+    /*this.expressApp.engine('html', ejs.renderFile)
     this.expressApp.set('view engine', 'html')
     this.expressApp.set('views', path.join(__dirname, '../../views'))
-    this.expressApp.use(express.static(path.join(__dirname, '../../views')))
+    this.expressApp.use(express.static(path.join(__dirname, '../../views')))*/
   }
 }
 

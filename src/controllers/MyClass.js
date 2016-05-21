@@ -22,7 +22,7 @@ export default class MyClass {
 
   @PostInject
   init() {
-    console.log('MyClass postinject')
+
   }
 
   index() {
