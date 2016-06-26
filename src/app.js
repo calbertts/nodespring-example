@@ -15,14 +15,18 @@ class MyApp extends ExpressApp {
     super(
       {
         port: 5000,
-        hostname: '192.168.0.10',
+        hostname: '0.0.0.0',
         classDir: __dirname,
         implConfig: {
           '/interfaces/DBService': './services/DBServiceImpl'
         },
-        logging: false,
+        logging: true,
         loggingSync: true,
-        loadbalancer: false
+        loadbalancer: false,
+        https: {
+          key: (__dirname + '/server.key'),
+          cert: (__dirname + '/server.crt')
+        }
       }
     )
 
